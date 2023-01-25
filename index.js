@@ -5,6 +5,7 @@ import { Dog } from './Dog.js'
 let isWaiting = false
 let dogsArray = []
 let currentDogIndex = 0
+let isFinished = false
 dogs.forEach((dog) => dogsArray.push(dog))
 
 function getNewDog() {
@@ -18,14 +19,14 @@ const likeBtn = document.getElementById('like-btn')
 const nopeBtn = document.getElementById('nope-btn')
 
 likeBtn.addEventListener('click', () => {
-    if (!isWaiting) {
+    if (!isWaiting && !isFinished) {
         dogsObj.hasBeenLiked = true
         buttonClick()
     }
 })
 
 nopeBtn.addEventListener('click', () => {
-    if (!isWaiting) {
+    if (!isWaiting && !isFinished) {
         dogsObj.hasBeenSwiped = true
         buttonClick()
     }
@@ -43,6 +44,7 @@ function buttonClick() {
 
 function endDogs() {
     isWaiting = true
+    isFinished = true
     document.getElementById('dog-section').innerHTML = `
         <div class="dog-section-end">
             <h2>There are no more dogs in your area</h2>
@@ -50,7 +52,9 @@ function endDogs() {
 }
 
 function render() {
-    document.getElementById('dog-section').innerHTML = dogsObj.getDogHtml()
+    if(!isFinished){
+        document.getElementById('dog-section').innerHTML = dogsObj.getDogHtml()
+    }
 }
 
 let dogsObj = new Dog(dogsArray[currentDogIndex])
