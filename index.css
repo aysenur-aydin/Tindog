@@ -58,13 +58,6 @@ header {
     transform: rotate(-30deg);
 }
 
-.hidden {
-    visibility: hidden;
-}
-.visible {
-    visibility: visible;
-}
-
 .dog-information {
     display: flex;
     flex-direction: column;
@@ -116,9 +109,13 @@ footer button {
 }
 
 .nope-btn:hover {
-    background-color: #FFE7EF;
+    background-color: hsl(340, 100%, 95%);
 }
 
 .like-btn:hover {
-    background-color: #DBFFF4;
+    background-color: hsl(162, 100%, 93%);
+}
+
+.rewind-btn:hover {
+    background-color: hsl(203, 100%, 93%);
 }

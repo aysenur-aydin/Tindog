@@ -1,4 +1,4 @@
-const dogs = [
+const dogsData = [
     {
         name: "Alex",
         avatar: "images/dog-alex.jpg",
@@ -33,4 +33,4 @@ const dogs = [
     }
 ]
 
-export { dogs }
+export { dogsData }

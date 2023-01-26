@@ -1,50 +1,65 @@
-import { dogs } from './data.js'
-import { Dog } from './Dog.js'
+import { dogsData } from './data.js'
+import { DogConstructor } from './Dog.js'
 
 // Initial values
-let isWaiting = false
 let dogsArray = []
 let currentDogIndex = 0
-let isFinished = false
-dogs.forEach((dog) => dogsArray.push(dog))
+dogsData.forEach((dog) => dogsArray.push(dog))
 
-function getNewDog() {
-    isWaiting = true
+function getNextDog() {
     currentDogIndex += 1
-    return dogsArray.length === currentDogIndex ? endDogs()
-        : new Dog(dogsArray[currentDogIndex])
+    return dogsArray.length === currentDogIndex ? renderEndScreen()
+        : new DogConstructor(dogsArray[currentDogIndex])
 }
 
-const likeBtn = document.getElementById('like-btn')
 const nopeBtn = document.getElementById('nope-btn')
+const likeBtn = document.getElementById('like-btn')
+const rewindBtn = document.getElementById('rewind-btn')
 
 likeBtn.addEventListener('click', () => {
-    if (!isWaiting && !isFinished) {
+    if(currentDogIndex < dogsArray.length){
         dogsObj.hasBeenLiked = true
-        buttonClick()
+        handleButton()
+        renderBadge("like")
     }
 })
 
 nopeBtn.addEventListener('click', () => {
-    if (!isWaiting && !isFinished) {
+    if(currentDogIndex < dogsArray.length){
         dogsObj.hasBeenSwiped = true
-        buttonClick()
+        handleButton()
+        renderBadge("nope")
     }
 })
 
-function buttonClick() {
-    isWaiting = true
+rewindBtn.addEventListener('click', () => {
+    currentDogIndex = 0
+    dogsObj = new DogConstructor(dogsArray[currentDogIndex])
     render()
+})
+
+function renderBadge(badgeName){
+    document.getElementById('badge-container').innerHTML = `
+        <img src="images/badge-${badgeName}.png">
+    `
+}
+
+function handleButton() {
+    const footerButtons = document.querySelectorAll('footer > button')
+    footerButtons.forEach(button => {
+        button.disabled = true
+    }) 
+
     setTimeout(() => {
-        dogsObj = getNewDog()
-        isWaiting = false
+        dogsObj = getNextDog()
         render()
+        footerButtons.forEach(button => {
+            button.disabled = false
+        }) 
     }, 1500)
 }
 
-function endDogs() {
-    isWaiting = true
-    isFinished = true
+function renderEndScreen() {
     document.getElementById('dog-section').innerHTML = `
         <div class="dog-section-end">
             <h2>There are no more dogs in your area</h2>
@@ -52,11 +67,11 @@ function endDogs() {
 }
 
 function render() {
-    if(!isFinished){
+    if(currentDogIndex < dogsArray.length){
         document.getElementById('dog-section').innerHTML = dogsObj.getDogHtml()
     }
 }
 
-let dogsObj = new Dog(dogsArray[currentDogIndex])
+let dogsObj = new DogConstructor(dogsArray[currentDogIndex])
 
 render()
