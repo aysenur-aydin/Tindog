@@ -103,19 +103,23 @@ footer img {
 
 footer button {
     padding: 20px;
-    width: 75px;
+    width: 70px;
     border-radius: 50%;
     border: none;
+}
+
+.back-btn:hover {
+    background-color: hsl(203, 100%, 93%);
 }
 
 .nope-btn:hover {
     background-color: hsl(340, 100%, 95%);
 }
 
-.like-btn:hover {
-    background-color: hsl(162, 100%, 93%);
-}
-
 .rewind-btn:hover {
     background-color: hsl(203, 100%, 93%);
+}
+
+.like-btn:hover {
+    background-color: hsl(162, 100%, 93%);
 }

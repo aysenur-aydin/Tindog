@@ -7,6 +7,8 @@
 
 <b>1. Ability to rewind dogs' profiles</b> :white_check_mark: * 
 
+<b>2. Ability to go to previous dog's profile</b> :white_check_mark: 
+
 -------
 
 *<i>Checkboxes will be checked once a task has been completed.</i>

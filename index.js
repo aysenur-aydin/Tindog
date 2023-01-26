@@ -12,15 +12,16 @@ function getNextDog() {
         : new DogConstructor(dogsArray[currentDogIndex])
 }
 
+const backBtn = document.getElementById('back-btn')
 const nopeBtn = document.getElementById('nope-btn')
 const likeBtn = document.getElementById('like-btn')
 const rewindBtn = document.getElementById('rewind-btn')
 
-likeBtn.addEventListener('click', () => {
-    if(currentDogIndex < dogsArray.length){
-        dogsObj.hasBeenLiked = true
-        handleButton()
-        renderBadge("like")
+backBtn.addEventListener('click', () => {
+    if (currentDogIndex !== 0){
+        currentDogIndex -= 1
+        dogsObj = new DogConstructor(dogsArray[currentDogIndex])
+        render()
     }
 })
 
@@ -29,6 +30,14 @@ nopeBtn.addEventListener('click', () => {
         dogsObj.hasBeenSwiped = true
         handleButton()
         renderBadge("nope")
+    }
+})
+
+likeBtn.addEventListener('click', () => {
+    if(currentDogIndex < dogsArray.length){
+        dogsObj.hasBeenLiked = true
+        handleButton()
+        renderBadge("like")
     }
 })
 
