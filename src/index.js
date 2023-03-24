@@ -18,7 +18,7 @@ const likeBtn = document.getElementById('like-btn')
 const rewindBtn = document.getElementById('rewind-btn')
 
 backBtn.addEventListener('click', () => {
-    if (currentDogIndex !== 0){
+    if (currentDogIndex !== 0) {
         currentDogIndex -= 1
         dogsObj = new DogConstructor(dogsArray[currentDogIndex])
         render()
@@ -26,7 +26,7 @@ backBtn.addEventListener('click', () => {
 })
 
 nopeBtn.addEventListener('click', () => {
-    if(currentDogIndex < dogsArray.length){
+    if (currentDogIndex < dogsArray.length) {
         dogsObj.hasBeenSwiped = true
         handleButton()
         renderBadge("nope")
@@ -34,7 +34,7 @@ nopeBtn.addEventListener('click', () => {
 })
 
 likeBtn.addEventListener('click', () => {
-    if(currentDogIndex < dogsArray.length){
+    if (currentDogIndex < dogsArray.length) {
         dogsObj.hasBeenLiked = true
         handleButton()
         renderBadge("like")
@@ -47,9 +47,9 @@ rewindBtn.addEventListener('click', () => {
     render()
 })
 
-function renderBadge(badgeName){
+function renderBadge(badgeName) {
     document.getElementById('badge-container').innerHTML = `
-        <img src="src/images/badge-${badgeName}.png">
+        <img src="../public/images/badge-${badgeName}.png">
     `
 }
 
@@ -57,14 +57,14 @@ function handleButton() {
     const footerButtons = document.querySelectorAll('footer > button')
     footerButtons.forEach(button => {
         button.disabled = true
-    }) 
+    })
 
     setTimeout(() => {
         dogsObj = getNextDog()
         render()
         footerButtons.forEach(button => {
             button.disabled = false
-        }) 
+        })
     }, 1500)
 }
 
@@ -76,7 +76,7 @@ function renderEndScreen() {
 }
 
 function render() {
-    if(currentDogIndex < dogsArray.length){
+    if (currentDogIndex < dogsArray.length) {
         document.getElementById('dog-section').innerHTML = dogsObj.getDogHtml()
     }
 }
