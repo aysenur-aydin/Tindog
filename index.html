@@ -1,55 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css"
+    />
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
     <!-- CSS -->
-    <link rel="stylesheet" href="src/index.css">
+    <link rel="stylesheet" href="src/index.css" />
     <!-- title icon -->
-    <link rel="icon" href="/logo-title.png" width="100%" type="image/x-icon">
+    <link rel="icon" href="/logo-title.png" width="100%" type="image/x-icon" />
     <title>Tindog</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="container">
+      <header>
+        <img src="/icon-profile.png" alt="Profile icon" />
+        <img src="/logo.png" alt="App logo" />
+        <img src="/icon-chat.png" alt="Chat icon" />
+      </header>
 
-        <header>
-            <img src="/icon-profile.png" alt="Profile icon">
-            <img src="/logo.png" alt="App logo">
-            <img src="/icon-chat.png" alt="Chat icon">
-        </header>
+      <main id="dog-section" class="dog-section">
+        <!-- dog informations comes here from getDogHtml()-->
+      </main>
 
-        <main id="dog-section" class="dog-section">
-            <!-- dog informations comes here from getDogHtml()-->
-        </main>
+      <footer>
+        <button id="back-btn" class="back-btn">
+          <img src="/back-arrow.png" alt="nope button" />
+        </button>
 
-        <footer>
-            <button id="back-btn" class="back-btn">
-                <img src="/images/back-arrow.png" alt="nope button">
-            </button>
+        <button id="nope-btn" class="nope-btn">
+          <img src="/icon-cross.png" alt="nope button" />
+        </button>
 
-            <button id="nope-btn" class="nope-btn">
-                <img src="/icon-cross.png" alt="nope button">
-            </button>
+        <button id="like-btn" class="like-btn">
+          <img src="/icon-heart.png" alt="like button" />
+        </button>
 
-            <button id="like-btn" class="like-btn">
-                <img src="/icon-heart.png" alt="like button">
-            </button>
-
-            <button id="rewind-btn" class="rewind-btn">
-                <img src="/clockwise-arrow.png" alt="rewind button">
-            </button>
-        </footer>
+        <button id="rewind-btn" class="rewind-btn">
+          <img src="/clockwise-arrow.png" alt="rewind button" />
+        </button>
+      </footer>
     </div>
 
     <script src="src/index.js" type="module"></script>
-</body>
-
+  </body>
 </html>
