@@ -49,7 +49,7 @@ rewindBtn.addEventListener('click', () => {
 
 function renderBadge(badgeName) {
     document.getElementById('badge-container').innerHTML = `
-        <img src="/public/badge-${badgeName}.png">
+        <img src="/badge-${badgeName}.png">
     `
 }
 
